@@ -10,23 +10,20 @@ const gatherQuestions = () => {
     let questionIndex = Math.floor(Math.random() * 21);
     if (!askedQuestions[questionIndex]) {
       askedQuestions[questionIndex] = 1;
-      questionsArray.push(Data[questionIndex]["question"]);
+      questionsArray.push(Data[questionIndex]);
     }
   }
   return questionsArray;
 };
-gatherQuestions();
 
 const Display = () => {
   const [questions, setQuestions] = useState([gatherQuestions()]);
-  const [answers, setAnswers] = useState([]);
 
-  console.log(questions);
   return (
     <div data-test="display-component">
       Display
-      <Question questions={questions} />
-      <Answers answers={answers} />
+      <Question questions={questions[0]} />
+      <Answers answers={questions[0]} />
     </div>
   );
 };

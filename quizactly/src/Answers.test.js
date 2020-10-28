@@ -12,3 +12,7 @@ test("Answers Component Renders", () => {
   const component = findByTestAttr(wrapper, "answers-component");
   expect(component.length).toBe(1);
 });
+
+test("answers component holds 4 answer items", () => {
+  //HOLD
+});
