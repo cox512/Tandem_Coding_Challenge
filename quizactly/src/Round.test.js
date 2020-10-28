@@ -13,11 +13,11 @@ test("Round Component Renders", () => {
   const component = findByTestAttr(wrapper, "round-component");
   expect(component.length).toBe(1);
 });
-
+//NOT WORKING COME BACK TO
 test("round starts at 0", () => {
   const wrapper = setup();
-  const round = findByTestAttr(wrapper, "round").text();
-  expect(round).toBe("0");
+  const round = findByTestAttr(wrapper, "round");
+  expect(round.text()).toBe("0");
 });
 
 test("clicking on 'start-game' button increments round display", () => {

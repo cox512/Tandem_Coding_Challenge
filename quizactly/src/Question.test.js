@@ -7,8 +7,12 @@ const setup = (props = {}) => {
   return shallow(<Question {...props} />);
 };
 
-test("Answers Component Renders", () => {
+test("Question Component Renders", () => {
   const wrapper = setup();
   const component = findByTestAttr(wrapper, "question-component");
   expect(component.length).toBe(1);
+});
+
+test("Question component has text", () => {
+  //HOLD
 });

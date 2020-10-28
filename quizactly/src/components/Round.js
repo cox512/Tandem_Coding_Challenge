@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
-const Round = () => {
-  const [roundNumber, setRoundNumber] = useState(0);
-
+const Round = ({ roundNumber }) => {
   return (
     <div data-test="round-component">
       <h3>

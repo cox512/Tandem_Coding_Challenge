@@ -6,10 +6,16 @@ import Display from "./Display";
 
 const App = () => {
   const [showIntro, setShowIntro] = useState(true);
+  const [roundNumber, setRoundNumber] = useState(0);
+
+  const onStartButtonClick = () => {
+    setShowIntro(false);
+    setRoundNumber(roundNumber + 1);
+  };
 
   const introDisplay = () => {
     if (showIntro) {
-      return <Intro showIntro={showIntro} setShowIntro={setShowIntro} />;
+      return <Intro onButtonClick={onStartButtonClick} />;
     }
   };
 
@@ -17,7 +23,13 @@ const App = () => {
     <div data-test="app-component">
       <h1>Quizactly!</h1>
       <h3>{introDisplay()}</h3>
-      {!showIntro ? <Round /> : null}
+      {!showIntro ? (
+        <>
+          <Round roundNumber={roundNumber} />
+          <Score />
+          <Display />
+        </>
+      ) : null}
     </div>
   );
 };
