@@ -6,7 +6,10 @@ const Intro = ({ setShowIntro }) => {
       <h1 data-test="intro-message">
         Test your trivia knowledge! Impress your friends!
       </h1>
-      <button data-test="start-button" onClick={(evt) => setShowIntro(false)}>
+      <button
+        data-test="start-game-button"
+        onClick={(evt) => setShowIntro(false)}
+      >
         Let's Play!
       </button>
     </div>

@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import Intro from "./Intro";
-import AnswerItem from "./AnswerItem";
-import Answers from "./Answers";
-import Question from "./Question";
 import Score from "./Score";
 import Round from "./Round";
 import Display from "./Display";
@@ -20,14 +17,7 @@ const App = () => {
     <div data-test="app-component">
       <h1>Quizactly!</h1>
       <h3>{introDisplay()}</h3>
-      <Round />
-      <Score />
-      <Display>
-        <Question />
-        <Answers>
-          <AnswerItem />
-        </Answers>
-      </Display>
+      {!showIntro ? <Round /> : null}
     </div>
   );
 };

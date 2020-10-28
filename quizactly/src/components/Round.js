@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Round = () => {
-  return <div data-test="round-component">Round</div>;
+  const [roundNumber, setRoundNumber] = useState(0);
+
+  return (
+    <div data-test="round-component">
+      <h3>
+        Round: <span data-test="round">{roundNumber}</span>
+      </h3>
+    </div>
+  );
 };
 
 export default Round;
