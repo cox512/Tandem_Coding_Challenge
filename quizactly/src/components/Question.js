@@ -1,15 +1,11 @@
 import React from "react";
 
-const Question = ({ questions }) => {
-  console.log(questions[0].question);
+const Question = ({ question }) => {
   return (
     <div data-test="question-component">
-      {questions ? (
+      {question ? (
         <h4>
-          Question:{" "}
-          <span data-test="question">
-            {questions[questions.length - 1].question}
-          </span>
+          Question: <span data-test="question">{question}</span>
         </h4>
       ) : null}
     </div>

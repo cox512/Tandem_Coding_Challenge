@@ -3,7 +3,7 @@ import { shallow } from "enzyme";
 import { findByTestAttr } from "../test/testUtils";
 import Answers from "./components/Answers";
 
-const setup = (props = {}) => {
+const setup = (props = { incorrectAnswers: [] }) => {
   return shallow(<Answers {...props} />);
 };
 
@@ -14,5 +14,7 @@ test("Answers Component Renders", () => {
 });
 
 test("answers component holds 4 answer items", () => {
-  //HOLD
+  const wrapper = setup();
+  const choice = findByTestAttr(wrapper, "answer-choice");
+  expect(choice.length).toBe(4);
 });
