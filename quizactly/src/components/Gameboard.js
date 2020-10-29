@@ -31,7 +31,7 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
   const reactionTimer = () => {
     setTimeout(() => {
       setShowReaction(false);
-    }, 2000);
+    }, 1300);
   };
 
   const checkAnswer = (answerChoice) => {
@@ -48,7 +48,7 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
     if (roundNumber === 10) {
       setTimeout(() => {
         setRoundNumber(roundNumber + 1);
-      }, 1500);
+      }, 1300);
     } else {
       setQuestionNumber(questionNumber + 1);
       setRoundNumber(roundNumber + 1);
@@ -63,6 +63,13 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
     } else {
       return "This Is Why We Practice";
     }
+  };
+
+  const gameReset = () => {
+    setQuestionNumber(0);
+    setRoundNumber(1);
+    setScore(0);
+    setQuestions([gatherQuestions()]);
   };
 
   return (
@@ -101,6 +108,7 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
         <div>
           <h3>You Got {score} Answers Right.</h3>
           <h3>{finalMessage()}</h3>
+          <button onClick={() => gameReset()}>Play Again?</button>
         </div>
       )}
     </div>

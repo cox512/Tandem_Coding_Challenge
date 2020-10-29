@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import Intro from "./Intro";
-import Score from "./Score";
-import Round from "./Round";
 import Gameboard from "./Gameboard";
 
 const App = () => {
