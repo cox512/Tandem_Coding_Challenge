@@ -1,14 +1,14 @@
 import { shallow } from "enzyme";
 
 import { findByTestAttr } from "../test/testUtils";
-import Display from "./components/Display";
+import Gameboard from "./components/Gameboard";
 
 const setup = (props = {}) => {
-  return shallow(<Display {...props} />);
+  return shallow(<Gameboard {...props} />);
 };
 
-test("Display Component Renders", () => {
+test("Game Board Component Renders", () => {
   const wrapper = setup();
-  const component = findByTestAttr(wrapper, "display-component");
+  const component = findByTestAttr(wrapper, "gameboard-component");
   expect(component.length).toBe(1);
 });

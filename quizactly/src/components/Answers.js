@@ -2,14 +2,17 @@ import React, { useState } from "react";
 import AnswerItem from "./AnswerItem";
 
 const Answers = ({ incorrectAnswers, correctAnswer, checkAnswer }) => {
-  //Randomize the list of displayed answers
+  //Randomizes the list of displayed answers
   const buildRandomAnswerArray = () => {
     let answerArray = [];
+
     answerArray.push({ choice: correctAnswer, correct: true });
-    incorrectAnswers.forEach((answer) => {
-      answerArray.push({ choice: answer, correct: false });
+    incorrectAnswers.forEach((incorrectAnswer) => {
+      answerArray.push({ choice: incorrectAnswer, correct: false });
     });
+
     let randomizedAnswers = [];
+
     while (answerArray.length > 0) {
       let randomIndex = Math.floor(Math.random() * answerArray.length);
       randomizedAnswers.push(answerArray[randomIndex]);
@@ -19,9 +22,8 @@ const Answers = ({ incorrectAnswers, correctAnswer, checkAnswer }) => {
   };
 
   const renderedAnswers = buildRandomAnswerArray().map((answer) => {
-    console.log("answer", answer);
     return (
-      <span key={answer.choice} id={answer.choice}>
+      <span key={answer.choice}>
         <AnswerItem
           data-test="answer-choice"
           answerChoice={answer}
@@ -32,8 +34,8 @@ const Answers = ({ incorrectAnswers, correctAnswer, checkAnswer }) => {
   });
 
   return (
-    <div data-test="answers-component">
-      <h5>Answers:</h5>
+    <div data-test="answers-component" className="answer-field">
+      {/* <h5>Answers:</h5> */}
       {renderedAnswers}
     </div>
   );

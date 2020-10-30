@@ -1,0 +1,48 @@
+body {
+    
+    background-color: rgb(66, 206, 245);
+}
+
+.play-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: rgb(245, 243, 240);
+    width: 70vw; 
+    max-width: 500px; 
+    margin: 0 auto;
+    height: 70vh;
+    max-height: 500px;
+    border: solid 4px rgb(219, 48, 137);
+    border-radius: 4px;
+}
+
+.title {
+    font-size: 5em;
+    text-align: center;
+    margin: .5em 0 !important;
+}
+
+.answer-choice {
+    width: 250px; 
+    margin: .5em auto;
+    /* padding: 0 .5em; */
+}
+
+.answer-choice:focus {
+    background-color: rgb(219, 48, 137);;
+}
+
+.answer-field {
+    background-color: rgb(66, 206, 245);;
+    border: solid 2px black;
+    border-radius: 4px;
+    width: 275px;
+    margin: 0 auto; 
+}
+
+
+
+
+

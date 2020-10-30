@@ -13,8 +13,8 @@ test("Answers Component Renders", () => {
   expect(component.length).toBe(1);
 });
 
-test("answers component holds 4 answer items", () => {
+test("answer item renders in answer component", () => {
   const wrapper = setup();
   const choice = findByTestAttr(wrapper, "answer-choice");
-  expect(choice.length).toBe(4);
+  expect(choice.length).toBe(1);
 });

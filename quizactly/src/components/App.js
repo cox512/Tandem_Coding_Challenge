@@ -7,27 +7,27 @@ const App = () => {
   const [roundNumber, setRoundNumber] = useState(0);
 
   const onButtonClick = (evt) => {
-    evt.preventDefault();
     setShowIntro(false);
     setRoundNumber(roundNumber + 1);
   };
 
   return (
-    <div data-test="app-component">
-      <h1>Quizactly!</h1>
-
-      {showIntro ? (
-        <h3>
-          <Intro onButtonClick={onButtonClick} />
-        </h3>
-      ) : (
-        <div>
-          <Gameboard
-            roundNumber={roundNumber}
-            setRoundNumber={setRoundNumber}
-          />
-        </div>
-      )}
+    <div>
+      <h1 className="title">Quizactly!</h1>
+      <div data-test="app-component" className="play-area">
+        {showIntro ? (
+          <h3>
+            <Intro onButtonClick={onButtonClick} />
+          </h3>
+        ) : (
+          <div>
+            <Gameboard
+              roundNumber={roundNumber}
+              setRoundNumber={setRoundNumber}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

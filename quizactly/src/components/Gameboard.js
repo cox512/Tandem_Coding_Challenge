@@ -11,7 +11,7 @@ const gatherQuestions = () => {
   let questionsArray = [];
   let askedQuestions = {};
   while (questionsArray.length < 10) {
-    let questionIndex = Math.floor(Math.random() * 21);
+    let questionIndex = Math.floor(Math.random() * Data.length);
     if (!askedQuestions[questionIndex]) {
       askedQuestions[questionIndex] = 1;
       questionsArray.push(Data[questionIndex]);
@@ -44,17 +44,18 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
     setShowReaction(true);
     reactionTimer();
     setTriggerReaction(!triggerReaction);
-
+    //Set Timer so we don't see the roundNumber increment to 11. (NOTE: I'm letting it increment past its 10 question limit b/c I'm using it to display the final score/message)
     if (roundNumber === 10) {
       setTimeout(() => {
         setRoundNumber(roundNumber + 1);
-      }, 1300);
+      }, 1200);
     } else {
       setQuestionNumber(questionNumber + 1);
       setRoundNumber(roundNumber + 1);
     }
   };
 
+  //Reveal a different message based on user's performance.
   const finalMessage = () => {
     if (score >= 8) {
       return "You're Brilliant!";
@@ -73,7 +74,7 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
   };
 
   return (
-    <div data-test="display-component">
+    <div data-test="gameboard-component">
       {roundNumber <= 10 ? (
         <>
           <div>

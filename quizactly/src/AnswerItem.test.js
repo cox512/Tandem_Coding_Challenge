@@ -1,9 +1,9 @@
 import { shallow } from "enzyme";
 
 import { findByTestAttr } from "../test/testUtils";
-import AnswerItem from "./components/AnswerItem";
+import AnswerItem, { answerChoice } from "./components/AnswerItem";
 
-const setup = (props = {}) => {
+const setup = (props = { answerChoice: { answerChoice } }) => {
   return shallow(<AnswerItem {...props} />);
 };
 
