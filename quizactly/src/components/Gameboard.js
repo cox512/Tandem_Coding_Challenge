@@ -51,16 +51,6 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
     setTriggerReaction(!triggerReaction);
   };
 
-  const finalMessage = () => {
-    if (score >= 8) {
-      return "You're Brilliant!";
-    } else if (score >= 4) {
-      return "Keep Working at it!";
-    } else {
-      return "This Is Why We Practice.";
-    }
-  };
-
   const setHighScore = () => {
     if (
       !localStorage.getItem("highScore") ||
@@ -92,8 +82,6 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
               <Answers
                 incorrectAnswers={questions[0][questionNumber].incorrect}
                 correctAnswer={questions[0][questionNumber].correct}
-                score={score}
-                setScore={setScore}
                 checkAnswer={checkAnswer}
               />
             </div>
@@ -101,17 +89,12 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
             <Reaction
               answerIsCorrect={answerIsCorrect}
               triggerReaction={triggerReaction}
-              setTriggerReaction={setTriggerReaction}
               correctAnswer={questions[0][questionNumber].correct}
             />
           )}
         </React.Fragment>
       ) : (
-        <GameSummary
-          score={score}
-          finalMessage={finalMessage}
-          gameReset={gameReset}
-        />
+        <GameSummary score={score} gameReset={gameReset} />
       )}
     </main>
   );

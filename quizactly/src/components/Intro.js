@@ -5,6 +5,7 @@ const Intro = ({ onButtonClick }) => {
     localStorage.removeItem("highScore");
     document.location.reload();
   };
+
   return (
     <div data-test="intro-component">
       <h1 data-test="intro-message" className="intro-message">

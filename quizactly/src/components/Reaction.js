@@ -22,8 +22,7 @@ const Reaction = ({ answerIsCorrect, triggerReaction, correctAnswer }) => {
       reactionFont = { fontFamily: "'Caladea', serif" };
     }
     let randomIndex = Math.floor(Math.random() * properResponse.length);
-    let response = properResponse[randomIndex];
-    setReaction(response);
+    setReaction(properResponse[randomIndex]);
   }, [triggerReaction]);
 
   return (
