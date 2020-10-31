@@ -1,13 +1,9 @@
-body {
-    
+body, .start-button, .replay-button {
+    color: rgb(52, 52, 50);
     background-color: rgb(66, 206, 245);
 }
 
-.play-area {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    text-align: center;
+.frame {
     background-color: rgb(245, 243, 240);
     width: 70vw; 
     max-width: 500px; 
@@ -18,31 +14,114 @@ body {
     border-radius: 4px;
 }
 
-.title {
-    font-size: 5em;
+
+
+.intro {
+    justify-content: center;
+}
+
+.intro-message {
+    margin: .5em 0 !important;
+}
+
+.play-area, .intro {
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    height: 70vh;
+    max-height: 500px;
+}
+
+.title, .high-score {
+    text-align: center;
+    color: rgb(219, 48, 137);
+}
+
+.title {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 5em;
     margin: .5em 0 !important;
 }
 
 .answer-choice {
     width: 250px; 
     margin: .5em auto;
-    /* padding: 0 .5em; */
 }
 
 .answer-choice:focus {
-    background-color: rgb(219, 48, 137);;
+    background-color: rgb(219, 48, 137);
 }
 
 .answer-field {
-    background-color: rgb(66, 206, 245);;
+    background-color: rgb(66, 206, 245);
     border: solid 2px black;
     border-radius: 4px;
     width: 275px;
     margin: 0 auto; 
 }
 
+.game-stats {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    margin: 1em;
+}
 
+.round, .score {
+    font-size: 2em;
+}
+.score {
+    margin: 0 0 14px 0;
+}
 
+.q-a-display {
+    margin: 3em 1em;
+}
 
+.question {
+    margin: 1.5em 0 1.5em 0;
+    font-size: 1.2em;
+}
 
+.reaction {
+    font-size: 2.7em;
+}
+
+.answer-intro{
+    font-size: 1.5em;
+    color: rgb(52, 52, 50);
+}
+
+.points-earned {
+    font-size: 5em;
+    margin-bottom: 0;
+}
+
+.answer-reveal {
+    font-size: 1.7em;
+    font-style: italic;
+    color: rgb(52, 52, 50);
+}
+
+button:hover {
+    border-color:  rgb(219, 48, 137);
+}
+
+.final-message {
+    font-size: 1.7em;
+    line-height: 1.7em;
+}
+
+.game-summary {
+    margin: 8em auto;
+}
+
+@media screen and (max-width: 600px) {
+    .answer-field {
+        max-width: 225px;
+    }
+
+    .answer-choice {
+        max-width: 200px;
+    }
+  }

@@ -5,9 +5,9 @@ import Round from "./Round";
 import Score from "./Score";
 import Reaction from "./Reaction";
 import Data from "../data/Apprentice_TandemFor400_Data.json";
+import GameSummary from "./GameSummary";
 
-//Pick 10 random questions from the JSON doc and store them in an array
-const gatherQuestions = () => {
+const gatherRandomizedQuestions = () => {
   let questionsArray = [];
   let askedQuestions = {};
   while (questionsArray.length < 10) {
@@ -25,13 +25,17 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
   const [showReaction, setShowReaction] = useState(false);
   const [answerIsCorrect, setAnswerIsCorrect] = useState(false);
   const [triggerReaction, setTriggerReaction] = useState(false);
-  const [questions, setQuestions] = useState([gatherQuestions()]);
+  const [questions, setQuestions] = useState([gatherRandomizedQuestions()]);
   const [questionNumber, setQuestionNumber] = useState(0);
 
-  const reactionTimer = () => {
+  const delayedReactions = () => {
     setTimeout(() => {
       setShowReaction(false);
-    }, 1300);
+      setRoundNumber(roundNumber + 1);
+      if (roundNumber !== 10) {
+        setQuestionNumber(questionNumber + 1);
+      }
+    }, 3000);
   };
 
   const checkAnswer = (answerChoice) => {
@@ -39,80 +43,77 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
       setScore(score + 1);
       setAnswerIsCorrect(true);
     } else {
+      setScore(score - 1);
       setAnswerIsCorrect(false);
     }
     setShowReaction(true);
-    reactionTimer();
+    delayedReactions();
     setTriggerReaction(!triggerReaction);
-    //Set Timer so we don't see the roundNumber increment to 11. (NOTE: I'm letting it increment past its 10 question limit b/c I'm using it to display the final score/message)
-    if (roundNumber === 10) {
-      setTimeout(() => {
-        setRoundNumber(roundNumber + 1);
-      }, 1200);
-    } else {
-      setQuestionNumber(questionNumber + 1);
-      setRoundNumber(roundNumber + 1);
-    }
   };
 
-  //Reveal a different message based on user's performance.
   const finalMessage = () => {
     if (score >= 8) {
       return "You're Brilliant!";
     } else if (score >= 4) {
       return "Keep Working at it!";
     } else {
-      return "This Is Why We Practice";
+      return "This Is Why We Practice.";
+    }
+  };
+
+  const setHighScore = () => {
+    if (
+      !localStorage.getItem("highScore") ||
+      score > localStorage.getItem("highScore")
+    ) {
+      return localStorage.setItem("highScore", score);
     }
   };
 
   const gameReset = () => {
+    setHighScore();
     setQuestionNumber(0);
     setRoundNumber(1);
     setScore(0);
-    setQuestions([gatherQuestions()]);
+    setQuestions([gatherRandomizedQuestions()]);
   };
 
   return (
-    <div data-test="gameboard-component">
+    <main data-test="gameboard-component">
       {roundNumber <= 10 ? (
-        <>
-          <div>
+        <React.Fragment>
+          <div className="game-stats">
             <Round roundNumber={roundNumber} />
             <Score score={score} />
           </div>
-
-          <div>
-            {!showReaction ? (
-              <div>
-                <Question question={questions[0][questionNumber].question} />
-                <div>
-                  <Answers
-                    incorrectAnswers={questions[0][questionNumber].incorrect}
-                    correctAnswer={questions[0][questionNumber].correct}
-                    score={score}
-                    setScore={setScore}
-                    checkAnswer={checkAnswer}
-                  />
-                </div>
-              </div>
-            ) : (
-              <Reaction
-                answerIsCorrect={answerIsCorrect}
-                triggerReaction={triggerReaction}
-                setTriggerReaction={setTriggerReaction}
+          {!showReaction ? (
+            <div className="q-a-display">
+              <Question question={questions[0][questionNumber].question} />
+              <Answers
+                incorrectAnswers={questions[0][questionNumber].incorrect}
+                correctAnswer={questions[0][questionNumber].correct}
+                score={score}
+                setScore={setScore}
+                checkAnswer={checkAnswer}
               />
-            )}
-          </div>
-        </>
+            </div>
+          ) : (
+            <Reaction
+              answerIsCorrect={answerIsCorrect}
+              triggerReaction={triggerReaction}
+              setTriggerReaction={setTriggerReaction}
+              correctAnswer={questions[0][questionNumber].correct}
+            />
+          )}
+        </React.Fragment>
       ) : (
-        <div>
-          <h3>You Got {score} Answers Right.</h3>
-          <h3>{finalMessage()}</h3>
-          <button onClick={() => gameReset()}>Play Again?</button>
-        </div>
+        <GameSummary
+          score={score}
+          finalMessage={finalMessage}
+          gameReset={gameReset}
+        />
       )}
-    </div>
+    </main>
   );
 };
 

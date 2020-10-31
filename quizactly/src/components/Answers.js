@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import AnswerItem from "./AnswerItem";
 
 const Answers = ({ incorrectAnswers, correctAnswer, checkAnswer }) => {
@@ -23,19 +23,17 @@ const Answers = ({ incorrectAnswers, correctAnswer, checkAnswer }) => {
 
   const renderedAnswers = buildRandomAnswerArray().map((answer) => {
     return (
-      <span key={answer.choice}>
-        <AnswerItem
-          data-test="answer-choice"
-          answerChoice={answer}
-          checkAnswer={checkAnswer}
-        />
-      </span>
+      <AnswerItem
+        key={answer.choice}
+        data-test="answer-choice"
+        answerChoice={answer}
+        checkAnswer={checkAnswer}
+      />
     );
   });
 
   return (
     <div data-test="answers-component" className="answer-field">
-      {/* <h5>Answers:</h5> */}
       {renderedAnswers}
     </div>
   );

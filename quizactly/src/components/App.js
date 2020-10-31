@@ -13,20 +13,30 @@ const App = () => {
 
   return (
     <div>
-      <h1 className="title">Quizactly!</h1>
-      <div data-test="app-component" className="play-area">
-        {showIntro ? (
-          <h3>
-            <Intro onButtonClick={onButtonClick} />
-          </h3>
-        ) : (
-          <div>
-            <Gameboard
-              roundNumber={roundNumber}
-              setRoundNumber={setRoundNumber}
-            />
-          </div>
-        )}
+      <header>
+        <h1 className="title">Quizactly!</h1>
+      </header>
+      {localStorage.getItem("highScore") ? (
+        <h5 className="high-score">
+          HIGH SCORE: {localStorage.getItem("highScore")}
+        </h5>
+      ) : null}
+
+      <div className="frame">
+        <div data-test="app-component" className="intro">
+          {showIntro ? (
+            <h3>
+              <Intro onButtonClick={onButtonClick} />
+            </h3>
+          ) : (
+            <div className="play-area">
+              <Gameboard
+                roundNumber={roundNumber}
+                setRoundNumber={setRoundNumber}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

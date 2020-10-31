@@ -15,6 +15,6 @@ test("Question Component Renders", () => {
 
 test("Question component has a question in it", () => {
   const wrapper = setup({ question: "question" });
-  const question = findByTestAttr(wrapper, "question");
+  const question = findByTestAttr(wrapper, "question-component");
   expect(question.text().length).not.toBe(0);
 });
