@@ -2,7 +2,7 @@
 
 Quizactly is Trivia Game that let's you answer a series of 10 multiple choice questions. You get 1 point for each correct answer and you lose one point for each incorrect one. The game stores your high score in local storage and you have the ability to reset that high score if you want to start from scratch.
 
-(https://giphy.com/gifs/D3oOWyTtQOWDG0uhV5)
+<img src="https://giphy.com/gifs/D3oOWyTtQOWDG0uhV5" alt="Quizactly in action">
 
 ## Installation/Dependencies
 
