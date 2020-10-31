@@ -1,6 +1,10 @@
 import React from "react";
 
 const Intro = ({ onButtonClick }) => {
+  const clearHighScore = () => {
+    localStorage.removeItem("highScore");
+    document.location.reload();
+  };
   return (
     <div data-test="intro-component">
       <h1 data-test="intro-message" className="intro-message">
@@ -14,6 +18,10 @@ const Intro = ({ onButtonClick }) => {
         onClick={(evt) => onButtonClick(evt)}
       >
         Let's Play!
+      </button>
+      <br />
+      <button className="high-score-reset" onClick={() => clearHighScore()}>
+        Reset High Score
       </button>
     </div>
   );

@@ -1,4 +1,4 @@
-body, .start-button, .replay-button {
+body, .start-button, .replay-button, .high-score-reset {
     color: rgb(52, 52, 50);
     background-color: rgb(66, 206, 245);
 }
@@ -14,14 +14,17 @@ body, .start-button, .replay-button {
     border-radius: 4px;
 }
 
-
-
 .intro {
     justify-content: center;
 }
 
 .intro-message {
     margin: .5em 0 !important;
+}
+
+.high-score-reset, .start-button {
+    width: 9em;
+    margin: 1em 0;
 }
 
 .play-area, .intro {
@@ -123,5 +126,9 @@ button:hover {
 
     .answer-choice {
         max-width: 200px;
+    }
+
+    .round, .score {
+        font-size: 1.5em;
     }
   }
