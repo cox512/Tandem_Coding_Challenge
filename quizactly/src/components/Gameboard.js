@@ -25,7 +25,7 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
   const [showReaction, setShowReaction] = useState(false);
   const [answerIsCorrect, setAnswerIsCorrect] = useState(false);
   const [triggerReaction, setTriggerReaction] = useState(false);
-  const [questions, setQuestions] = useState([gatherRandomizedQuestions()]);
+  const [questions, setQuestions] = useState(gatherRandomizedQuestions());
   const [questionNumber, setQuestionNumber] = useState(0);
 
   const delayedReactions = () => {
@@ -65,7 +65,7 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
     setQuestionNumber(0);
     setRoundNumber(1);
     setScore(0);
-    setQuestions([gatherRandomizedQuestions()]);
+    setQuestions(gatherRandomizedQuestions());
   };
 
   return (
@@ -78,10 +78,10 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
           </div>
           {!showReaction ? (
             <div className="q-a-display">
-              <Question question={questions[0][questionNumber].question} />
+              <Question question={questions[questionNumber].question} />
               <Answers
-                incorrectAnswers={questions[0][questionNumber].incorrect}
-                correctAnswer={questions[0][questionNumber].correct}
+                incorrectAnswers={questions[questionNumber].incorrect}
+                correctAnswer={questions[questionNumber].correct}
                 checkAnswer={checkAnswer}
               />
             </div>
@@ -89,7 +89,7 @@ const Gameboard = ({ roundNumber, setRoundNumber }) => {
             <Reaction
               answerIsCorrect={answerIsCorrect}
               triggerReaction={triggerReaction}
-              correctAnswer={questions[0][questionNumber].correct}
+              correctAnswer={questions[questionNumber].correct}
             />
           )}
         </React.Fragment>
