@@ -1,6 +1,6 @@
 # QUIZACTLY
 
-Quizactly is a triva app developed as part of Tandem's Software Engineering Aprrenticeship application. The user answers a series of 10 multiple choice questions, receiving one point for each correct answer and losing one point for each incorrect one. The game stores the high score in local storage. Users can reset the high score if they want to start from scratch.
+Quizactly is a triva app developed as part of Tandem's Software Engineering Aprrenticeship application. The user answers a series of ten multiple choice questions, receiving one point for each correct answer and losing one point for each incorrect one. The game stores the high score in local storage. Users can reset the high score if they want to start from scratch.
 
 ## Project Details
 REQUIREMENTS (via Tandem's Apprenticeship Application)
@@ -73,13 +73,13 @@ npm i --save-dev enzyme jest-enzyme enzyme-adapter-react-16
 ### Notes on the Project
 ISSUES
 
-I'm still learning about TDD so the testing on this project isn't terribly robust. If I had more time I would've dug into the Jest and Enzyme docs more fully to figure out how to test a component's changing props.
+- I'm still learning about TDD so the testing on this project isn't terribly robust. If I had more time I would've dug into the Jest and Enzyme docs more fully to figure out how to test a component's changing props.
 
 FUTURE ADDITIONS
 
-I would like to add a 2-player feature with a sudden-death round in case of a tie.
+- I would like to add a two-player feature with a sudden-death round in case of a tie.
 
-I would like to replace the word-based reactions that pop up after each answer with a variety of positive correct answer emojis or negative incorrect answer ones.
+- I would like to replace the word-based reactions that pop up after each answer with a variety of positive correct answer emojis or negative incorrect answer ones.
 
 ### Acknowledgments
 
