@@ -21,7 +21,11 @@ const Intro = ({ onButtonClick }) => {
         Let's Play!
       </button>
       <br />
-      <button className="high-score-reset" onClick={() => clearHighScore()}>
+      <button
+        data-test="reset-high-score-button"
+        className="high-score-reset"
+        onClick={() => clearHighScore()}
+      >
         Reset High Score
       </button>
     </div>

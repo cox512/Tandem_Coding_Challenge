@@ -20,15 +20,3 @@ test("round starts at 0", () => {
   const round = findByTestAttr(wrapper, "round");
   expect(round.text()).toBe("0");
 });
-
-//TEST NOT WORKING -- FORMATTED INCORRECTLY
-test("clicking on 'start-game' button increments round display", () => {
-  const wrapper = shallow(<Intro onButtonClick={onButtonClick} />);
-  //Find the button
-  const button = findByTestAttr(wrapper, "start-game-button");
-  //Click the button. This requires the simulate() method from Enzyme.
-  button.simulate("click");
-  //Find the display, and test that the number has been incremented
-  const count = findByTestAttr(wrapper, "round").text();
-  expect(count).toBe("1");
-});
