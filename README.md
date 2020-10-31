@@ -2,6 +2,8 @@
 
 Quizactly is a triva app developed as part of Tandem's Software Engineering Aprrenticeship application. The user answers a series of ten multiple choice questions, receiving one point for each correct answer and losing one point for each incorrect one. The game stores the high score in local storage. Users can reset the high score if they want to start from scratch.
 
+If you would like to play a round you can find the game [here](https://quizactly.vercel.app/)
+
 ## Project Details
 REQUIREMENTS (via Tandem's Apprenticeship Application)
 - Create an app that displays trivia questions with multiple-choice answers to select from.

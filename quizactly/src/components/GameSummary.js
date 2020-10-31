@@ -14,7 +14,7 @@ const GameSummary = ({ score, gameReset }) => {
   return (
     <div data-test="game-summary-component" className="game-summary">
       <h3 className="final-message">
-        Your final score is {score}.
+        Your final score is {score}
         <br />
         {finalMessage()}
       </h3>
